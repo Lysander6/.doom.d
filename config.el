@@ -79,6 +79,9 @@
 ;; they are implemented.
 
 
+(after! flyspell
+  (setq flyspell-default-dictionary "en_GB"))
+
 (after! winum
   (map! :leader :n "1" 'winum-select-window-1)
   (map! :leader :n "2" 'winum-select-window-2)
