@@ -77,3 +77,16 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+
+(after! winum
+  (map! :leader :n "1" 'winum-select-window-1)
+  (map! :leader :n "2" 'winum-select-window-2)
+  (map! :leader :n "3" 'winum-select-window-3)
+  (map! :leader :n "4" 'winum-select-window-4)
+  (map! :leader :n "5" 'winum-select-window-5)
+  (map! :leader :n "6" 'winum-select-window-6)
+  (map! :leader :n "7" 'winum-select-window-7)
+  (map! :leader :n "8" 'winum-select-window-8)
+  (map! :leader :n "9" 'winum-select-window-9)
+  (map! :leader :n "0" 'winum-select-window-0-or-10))
