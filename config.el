@@ -78,6 +78,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(after! evil
+  (setq evil-snipe-scope 'visible))
 
 (after! flyspell
   (setq flyspell-default-dictionary "en_GB"))
