@@ -78,6 +78,27 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(after! company
+  (setq company-idle-delay nil)) ; never start completions automatically, use 'C-SPC'
+
+;; Kinda, sorta, working copilot completion - company-mode popup is only invoked
+;; explicitly with 'C-SPC' (see above) and suppresses display of copilot's
+;; completions (via `copilot-disable-display-predicates' below).
+
+(use-package! copilot
+  :hook ((prog-mode . copilot-mode)
+         (text-mode . copilot-mode))
+  :custom
+  (copilot-disable-display-predicates
+   '(company-explicit-action-p
+     ;; company-tooltip-visible-p ; not quite right
+     ))
+  :bind (:map copilot-completion-map
+              ("<tab>"   . 'copilot-accept-completion)
+              ("TAB"     . 'copilot-accept-completion)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)
+              ("C-TAB"   . 'copilot-accept-completion-by-word)))
+
 (after! evil
   (setq evil-snipe-scope 'visible))
 
